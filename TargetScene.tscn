@@ -1,6 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Start.gd" type="Script" id=1]
+[ext_resource path="res://NextEndButton.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -8,9 +12,22 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer"]
-margin_left = 464.0
-margin_top = 293.0
-margin_right = 559.0
-margin_bottom = 307.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+margin_left = 456.0
+margin_top = 281.0
+margin_right = 567.0
+margin_bottom = 319.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_right = 111.0
+margin_bottom = 14.0
 text = "Yooooooooooo"
+
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 111.0
+margin_bottom = 38.0
+text = "Load next again"
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="CanvasLayer/CenterContainer/VBoxContainer/Button" method="_on_Button_pressed"]
